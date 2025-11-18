@@ -28,8 +28,8 @@ pipeline {
             steps {
                 script {
                     sh """
-                        docker-compose -f docker-compose.app.yml down || true
-                        docker-compose -f docker-compose.app.yml up -d
+                        docker compose -f docker-compose.app.yml down || true
+                        docker compose -f docker-compose.app.yml up -d
                         sleep 5
                     """
                 }
@@ -63,7 +63,7 @@ pipeline {
         }
         failure {
             echo '❌ Deployment failed!'
-            sh 'docker-compose -f docker-compose.app.yml down || true'
+            sh 'docker compose -f docker-compose.app.yml down || true'
         }
     }
 }
