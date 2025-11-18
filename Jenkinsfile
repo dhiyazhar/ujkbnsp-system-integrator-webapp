@@ -40,7 +40,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        curl -f http://localhost || exit 1
+                        curl -f http://myapp:80 || exit 1
                     """
                 }
             }
@@ -59,10 +59,10 @@ pipeline {
     
     post {
         success {
-            echo '✅ Deployment successful!'
+            echo 'Deployment successful!'
         }
         failure {
-            echo '❌ Deployment failed!'
+            echo 'Deployment failed!'
             sh 'docker-compose -f docker-compose.app.yml down || true'
         }
     }
