@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    image: myapp:latest
+    container_name: myapp
+    ports:
+      - "80:80"                 
+    networks:
+      - monitoring
+    restart: unless-stopped
+
+networks:
+  monitoring:
+    external: true
