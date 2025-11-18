@@ -9,6 +9,8 @@ function App() {
         <p className="header-text">Uji Kompetensi BNSP</p>
         <h1 className="participant-name">{namaPeserta}</h1>
         <p className="scheme-text">System Integrator</p>
+        <p className="scheme-text">v1</p>
+
         
         <div className="deployment-status">
           <span className="status-dot"></span>
