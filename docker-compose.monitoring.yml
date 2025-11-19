@@ -7,8 +7,6 @@ services:
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus-data:/prometheus
-    networks:
-      - monitoring
     restart: unless-stopped
 
   grafana:
@@ -18,8 +16,6 @@ services:
       - "3000:3000"
     volumes:
       - grafana-data:/var/lib/grafana
-    networks:
-      - monitoring
     restart: unless-stopped
 
   node-exporter:
@@ -31,8 +27,6 @@ services:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
       - /:/rootfs:ro
-    networks:
-      - monitoring
     restart: unless-stopped
 
   cadvisor:
@@ -45,15 +39,9 @@ services:
       - /var/run:/var/run:ro
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
-    networks:
-      - monitoring
     restart: unless-stopped
     privileged: true
 
 volumes:
   prometheus-data:
   grafana-data:
-
-networks:
-  monitoring:
-    external: true
