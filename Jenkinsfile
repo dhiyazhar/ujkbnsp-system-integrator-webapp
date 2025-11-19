@@ -40,7 +40,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        curl -f http://localhost || exit 1
+                        curl -f http://myapp:80 || exit 1
                     """
                 }
             }
